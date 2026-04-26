@@ -1,0 +1,23 @@
+.shell {
+  display: flex;
+  height: 100vh;
+  background: var(--bg-void);
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
