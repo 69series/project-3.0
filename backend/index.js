@@ -52,12 +52,12 @@ app.get('/69s/callback',
       { expiresIn: '7d' }
     );
     // Redirect to React frontend with token in URL
-    res.redirect(`process.env.CLIENT_URL/auth/callback?token=${token}`);
+    res.redirect(`${process.env.CLIENT_URL}/auth/callback?token=${token}`);
   }
 );
 
 app.get('/auth/failure', (req, res) => {
-  res.redirect('process.env.CLIENT_URL?error=google_failed');
+  res.redirect(`${process.env.CLIENT_URL}?error=google_failed`);
 });
 
 // ─── Get current user ────────────────────────────────────
