@@ -120,7 +120,7 @@ export default function Portfolio() {
             
             {/* ── RESUME BUTTON ── */}
             <a 
-              href="http://six9series-3-0-b.onrender.com/resume"
+              href="https://six9series-3-0-b.onrender.com/resume"
               target="_blank"
               rel="noopener noreferrer"
               type="application/pdf"
