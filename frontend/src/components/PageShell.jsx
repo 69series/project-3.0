@@ -9,7 +9,7 @@ function PageShell({ children }) {
     const token = localStorage.getItem('token')
     if (!token) { window.location.href = '/'; return }
 
-    fetch('http://localhost:8080/me', {
+    fetch('https://six9series-3-0-b.onrender.com/me', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => {

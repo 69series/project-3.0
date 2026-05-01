@@ -120,10 +120,10 @@ export default function Portfolio() {
             
             {/* ── RESUME BUTTON ── */}
             <a 
-              href="http://localhost:8080/resume"
+              href="http://six9series-3-0-b.onrender.com/resume"
               target="_blank"
               rel="noopener noreferrer"
-              //type="application/pdf"
+              type="application/pdf"
               className={styles.resumeBtn}
             >
               View Resume ↗
