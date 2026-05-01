@@ -1,44 +1,31 @@
-const nodemailer = require('nodemailer');
+require('dotenv').config();
+const { Resend } = require('resend');
 
-// Store OTPs temporarily in memory
 const otpStore = {};
 
-// Generate a 6 digit OTP
 function generateOTP() {
     return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-// Send OTP via email
 async function sendOTP(email) {
     const otp = generateOTP();
     otpStore[email] = {
         otp,
-        expiresAt: Date.now() + 5 * 60 * 1000 // expires in 5 minutes
+        expiresAt: Date.now() + 5 * 60 * 1000
     };
 
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS,
-        }
-    });
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    await transporter.sendMail({
-        from: process.env.GMAIL_USER,
+    await resend.emails.send({
+        from: 'onboarding@resend.dev',
         to: email,
-        subject: 'Your OTP - 69s-project-2.0',
-        text: `Your OTP is: ${otp}. It expires in 5 minutes.
-        Resentment is corrossive and I hate it -TS.
-        When You come from NOTHING, You appeciate EVERYTHING -69s`
+        subject: 'Your OTP - 69s-project-3.0',
+        text: `Your OTP is: ${otp}. It expires in 5 minutes.`
     });
 
     console.log(`OTP sent to ${email}`);
 }
 
-// Verify OTP
 function verifyOTP(email, otp) {
     const record = otpStore[email];
     if (!record) return false;
