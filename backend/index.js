@@ -52,12 +52,12 @@ app.get('/69s/callback',
       { expiresIn: '7d' }
     );
     // Redirect to React frontend with token in URL
-    res.redirect(`http://localhost:5173/auth/callback?token=${token}`);
+    res.redirect(`s69series-3-0.vercel.appauth/callback?token=${token}`);
   }
 );
 
 app.get('/auth/failure', (req, res) => {
-  res.redirect('http://localhost:5173/?error=google_failed');
+  res.redirect('s69series-3-0.vercel.app?error=google_failed');
 });
 
 // ─── Get current user ────────────────────────────────────
