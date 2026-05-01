@@ -15,7 +15,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: 'http://s69series-3-0.vercel.app',
+  origin: 'https://s69series-3-0.vercel.app',
   credentials: true
 }));
 app.use(express.json());
@@ -52,12 +52,12 @@ app.get('/69s/callback',
       { expiresIn: '7d' }
     );
     // Redirect to React frontend with token in URL
-    res.redirect(`/69s/s69series-3-0.vercel.app/auth/callback?token=${token}`);
+    res.redirect(`https://s69series-3-0.vercel.app/auth/callback?token=${token}`);
   }
 );
 
 app.get('/auth/failure', (req, res) => {
-  res.redirect('s69series-3-0.vercel.app?error=google_failed');
+  res.redirect('https://s69series-3-0.vercel.app?error=google_failed');
 });
 
 // ─── Get current user ────────────────────────────────────
