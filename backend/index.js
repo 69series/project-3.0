@@ -52,7 +52,7 @@ app.get('/69s/callback',
       { expiresIn: '7d' }
     );
     // Redirect to React frontend with token in URL
-    res.redirect(`s69series-3-0.vercel.appauth/callback?token=${token}`);
+    res.redirect(`s69series-3-0.vercel.app/auth/callback?token=${token}`);
   }
 );
 
