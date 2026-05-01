@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const https = require('https');
 
 const otpStore = {};
 
@@ -13,23 +14,21 @@ async function sendOTP(email) {
         expiresAt: Date.now() + 5 * 60 * 1000
     };
 
-    const transporter = nodemailer.createTransport({
-        host: 'smtp-relay.brevo.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.BREVO_USER,
-            pass: process.env.BREVO_PASS,
-        }
+    const data = JSON.stringify({
+        sender: { email: process.env.BREVO_USER },
+        to: [{ email: email }],
+        subject: 'Your OTP - 69s-project-3.0',
+        textContent: `Your OTP is: ${otp}. It expires in 5 minutes.`
     });
 
-    await transporter.sendMail({
-        from: process.env.BREVO_USER,
-        to: email,
-        subject: 'Your OTP - 69s-project-3.0',
-        text: `Your OTP is: ${otp}. It expires in 5 minutes.
-Resentment is corrosive and I hate it -TS.
-When You come from NOTHING, You appreciate EVERYTHING -69s`
+    await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'api-key': process.env.BREVO_API_KEY,
+        },
+        body: data
     });
 
     console.log(`OTP sent to ${email}`);
