@@ -1,41 +1,69 @@
 .quoteContainer {
-  margin-top: auto;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  margin-top: 2rem;
+  padding: 1.75rem 2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   text-align: center;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.quoteContainer:hover {
+  border-color: var(--border-bright);
+}
+
+.topAccent {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+}
+
+.quoteIcon {
+  font-size: 1.5rem;
+  color: var(--violet);
+  opacity: 0.5;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  font-family: Georgia, serif;
 }
 
 .quoteText {
-  font-size: 1rem;
-  color: #111827;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 0.95rem;
+  color: var(--text-accent);
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  transition: opacity 0.3s ease;
 }
 
+.visible { opacity: 1; }
+.hidden  { opacity: 0; }
+
 .quoteBtn {
-  background: #111827;
-  border: none;
-  font-size: 0.8rem;
-  color: white;
-  font-weight: 600;
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 6px 18px;
+  border-radius: 6px;
   cursor: pointer;
-  padding: 8px 20px;
-  border-radius: 8px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  font-family: inherit;
 }
 
 .quoteBtn:hover {
-  background: #000;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background: var(--indigo-soft);
+  border-color: var(--indigo);
+  color: var(--text-accent);
 }

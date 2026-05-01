@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import styles from './PageShell.module.css'
 
+const API = import.meta.env.VITE_API_URL
+
 function PageShell({ children }) {
   const [user, setUser] = useState(null)
 
@@ -9,7 +11,7 @@ function PageShell({ children }) {
     const token = localStorage.getItem('token')
     if (!token) { window.location.href = '/'; return }
 
-    fetch('https://six9series-3-0-b.onrender.com/me', {
+    fetch(`${API}/me`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => {

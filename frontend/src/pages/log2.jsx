@@ -11,7 +11,7 @@ function Login() {
 
   const handleSignin = async (e) => {
     e.preventDefault()
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signin', {
+    const res = await fetch('${API}/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -27,7 +27,7 @@ function Login() {
 
   const handleSendOtp = async (e) => {
     e.preventDefault()
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signup/send-otp', {
+    const res = await fetch('${API}/signup/send-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -43,7 +43,7 @@ function Login() {
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault()
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signup/verify-otp', {
+    const res = await fetch('${API}/signup/verify-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp, password })
@@ -58,7 +58,7 @@ function Login() {
   }
 
   const handleResendOtp = async () => {
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signup/send-otp', {
+    const res = await fetch('${API}/signup/send-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -92,7 +92,7 @@ function Login() {
               </button>
             </form>
             <div className={styles.divider}><span>or</span></div>
-            <a className={styles.googleBtn} href="https://six9series-3-0-b.onrender.com/auth/google">
+            <a className={styles.googleBtn} href="${API}/auth/google">
               <Chrome size={18} />
               Continue with Google
             </a>
@@ -111,7 +111,7 @@ function Login() {
               <button className={styles.btn} type="submit">Send OTP</button>
             </form>
             <div className={styles.divider}><span>or</span></div>
-            <a className={styles.googleBtn} href="https://six9series-3-0-b.onrender.com/auth/google">
+            <a className={styles.googleBtn} href="${API}/auth/google">
               <Chrome size={18} />
               Continue with Google
             </a>

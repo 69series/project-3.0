@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import styles from './Login.module.css'
 
+const API = import.meta.env.VITE_API_URL
+
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -10,7 +12,7 @@ function Login() {
 
   const handleSignin = async (e) => {
     e.preventDefault()
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signin', {
+    const res = await fetch(`${API}/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -26,7 +28,7 @@ function Login() {
 
   const handleSendOtp = async (e) => {
     e.preventDefault()
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signup/send-otp', {
+    const res = await fetch(`${API}/signup/send-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -42,7 +44,7 @@ function Login() {
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault()
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signup/verify-otp', {
+    const res = await fetch(`${API}/signup/verify-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp, password })
@@ -57,7 +59,7 @@ function Login() {
   }
 
   const handleResendOtp = async () => {
-    const res = await fetch('https://six9series-3-0-b.onrender.com/signup/send-otp', {
+    const res = await fetch(`${API}/signup/send-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -85,7 +87,7 @@ function Login() {
             <button className={styles.btn} type="submit">Sign In</button>
           </form>
           <div className={styles.divider}><span>or</span></div>
-          <a className={styles.googleBtn} href="https://six9series-3-0-b.onrender.com/auth/google">
+          <a className={styles.googleBtn} href={`${API}/auth/google`}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
               <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -105,7 +107,7 @@ function Login() {
             <button className={styles.btn} type="submit">Send OTP</button>
           </form>
           <div className={styles.divider}><span>or</span></div>
-          <a className={styles.googleBtn} href="https://six9series-3-0-b.onrender.com/auth/google">
+          <a className={styles.googleBtn} href={`${API}/auth/google`}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
               <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>

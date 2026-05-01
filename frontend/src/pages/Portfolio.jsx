@@ -1,6 +1,8 @@
 import PageShell from "../components/PageShell";
 import styles from "./Portfolio.module.css";
 
+const API = import.meta.env.VITE_API_URL
+
 // ── Hardcoded data ──────────────────────────────────────────────────────────
 
 const bio = {
@@ -120,7 +122,7 @@ export default function Portfolio() {
             
             {/* ── RESUME BUTTON ── */}
             <a 
-              href="https://six9series-3-0-b.onrender.com/resume"
+              href={`${API}/resume`}
               target="_blank"
               rel="noopener noreferrer"
               type="application/pdf"
