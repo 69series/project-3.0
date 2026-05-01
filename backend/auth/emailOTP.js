@@ -17,7 +17,7 @@ async function sendOTP(email) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-        from: 'onboarding@resend.dev',
+        from: process.env.FROM_GMAIL,
         to: email,
         subject: 'Your OTP - 69s-project-3.0',
         text: `Your OTP is: ${otp}. It expires in 5 minutes.`
