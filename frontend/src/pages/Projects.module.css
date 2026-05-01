@@ -1,0 +1,251 @@
+/* ── Projects.module.css ──────────────────────────────────────────────────── */
+
+.page {
+  width: 100%;
+  padding: 3rem 2.75rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* ── PAGE HEADER ───────────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heading {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-primary, #e2e8f0);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.subheading {
+  font-size: 0.92rem;
+  color: var(--text-muted, #475569);
+  margin: 0;
+}
+
+/* ── SECTION LABEL ─────────────────────────────────────────────────────────── */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted, #475569);
+  margin: 0;
+}
+
+.labelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--violet, #7c3aed);
+  flex-shrink: 0;
+}
+
+/* ── FEATURED CARD ─────────────────────────────────────────────────────────── */
+
+.featuredCard {
+  position: relative;
+  background: var(--bg-surface, #0d0d1a);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 16px;
+  padding: 2rem 2.25rem;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.featuredCard:hover {
+  border-color: rgba(124, 58, 237, 0.55);
+}
+
+.featuredGlow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.featuredTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.featuredLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.featuredTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #e2e8f0);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.featuredDesc {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-muted, #475569);
+  margin: 0 0 1.5rem;
+  max-width: 680px;
+}
+
+/* ── PROJECT GRID ──────────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--bg-surface, #0d0d1a);
+  border: 1px solid var(--border, rgba(124, 58, 237, 0.15));
+  border-radius: 12px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  transform: translateY(-2px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cardTitle {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--text-primary, #e2e8f0);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--text-muted, #475569);
+  margin: 0;
+  flex: 1;
+}
+
+/* ── SHARED ────────────────────────────────────────────────────────────────── */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--indigo, #6366f1);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+.badgeDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+.link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted, #475569);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--text-primary, #e2e8f0);
+}
+
+.linkDemo {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--violet, #7c3aed);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.linkDemo:hover {
+  color: #a78bfa;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 2rem 1.25rem 5rem;
+    gap: 3rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredCard {
+    padding: 1.5rem;
+  }
+}

@@ -1,10 +1,11 @@
 import { useLocation } from 'react-router-dom'
 import PageShell from '../components/PageShell'
 import styles from './Dashboard.module.css'
+import Quote from './dshb-ext/Quote';
 
 const STATS = [
   { num: '12', label: 'Projects', accent: true },
-  { num: '4',  label: 'Publications' },
+  { num: '6',  label: 'Publications', accent: true },
   { num: '8',  label: 'Achievements' },
   { num: '3',  label: 'Ongoing' },
 ]
@@ -12,6 +13,12 @@ const STATS = [
 const ACTIVITY = [
   { text: 'Published — Smart irrigation system using LoRa', tag: 'Publication', color: '#7c3aed' },
   { text: 'Added — PCB design files for motor controller v2', tag: 'Project', color: '#6366f1' },
+  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
+  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
+  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
+  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
+  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
+  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
   { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
 ]
 
@@ -35,11 +42,10 @@ function DashboardContent({ user }) {
           Welcome back, <span>{user?.displayName?.split(' ')[0]}.</span>
         </h1>
         <p className={styles.heroSub}>
-          Everything you need — projects, publications, lab notes and more.
-          All from the shadows.
+          Everything you need — projects, publications, lab notes and more. All from the shadows.
         </p>
         <div className={styles.chips}>
-          {['Embedded Systems', 'IoT', 'Signal Processing', 'PCB Design'].map(c => (
+          {['Embedded Systems', 'IoT', 'Signal Processing', 'PCB Design', 'RF Design'].map(c => (
             <span key={c} className={styles.chip}>{c}</span>
           ))}
         </div>
@@ -68,6 +74,7 @@ function DashboardContent({ user }) {
           ))}
         </div>
       </div>
+       <Quote />
     </>
   )
 }

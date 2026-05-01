@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, User, FolderGit2, BookOpen, FlaskConical, Mail } from 'lucide-react'
+import { LayoutDashboard, User, FolderGit2, BookOpen, FlaskConical, Mail, CakeSliceIcon } from 'lucide-react'
 import styles from './Sidebar.module.css'
 
 const NAV = [
@@ -7,11 +7,12 @@ const NAV = [
   { icon: <LayoutDashboard size={15} />, label: 'Dashboard', path: '/dashboard' },
   { icon: <User size={15} />, label: 'Portfolio', path: '/portfolio' },
   { section: 'Work' },
-  { icon: <FolderGit2 size={15} />, label: 'Projects', path: '/projects', badge: '6' },
+  { icon: <FolderGit2 size={15} />, label: 'Projects', path: '/projects', badge: 'lolicon' },
   { icon: <BookOpen size={15} />, label: 'Works & Publications', path: '/publications' },
   { icon: <FlaskConical size={15} />, label: 'Lab Notes', path: '/labnotes' },
   { section: 'Connect' },
   { icon: <Mail size={15} />, label: 'Contact', path: '/contact' },
+  { icon: <CakeSliceIcon size={15} />, label: 'Cake', path: '/pice' },
 ]
 
 function Sidebar({ user }) {
@@ -35,7 +36,7 @@ function Sidebar({ user }) {
       <div className={styles.sidebarLogo}>
         <div className={styles.sidebarName}>
           <span className={styles.sidebarDot} />
-          ALEX ALDERSON
+          NARENDRA SAGOLSEM
         </div>
         <div className={styles.sidebarRole}>Electronics Engineers</div>
       </div>

@@ -1,3 +1,5 @@
+@import './logout.css';
+
 .sidebar {
   width: var(--sidebar-width);
   background: var(--bg-deep);
@@ -152,7 +154,7 @@
   color: var(--text-muted);
 }
 
-.logoutBtn {
+ /*.logoutBtn {
   background: none;
   border: none;
   color: var(--text-muted);
@@ -167,4 +169,4 @@
 
 .logoutBtn:hover {
   color: var(--text-accent);
-}
+}*/

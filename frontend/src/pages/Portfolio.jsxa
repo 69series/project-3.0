@@ -117,18 +117,6 @@ export default function Portfolio() {
             <p className={styles.heroTitle}>{bio.title}</p>
             <p className={styles.heroTagline}>{bio.tagline}</p>
             <p className={styles.heroAbout}>{bio.about}</p>
-            
-            {/* ── RESUME BUTTON ── */}
-            <a 
-              href="http://localhost:8080/resume"
-              target="_blank"
-              rel="noopener noreferrer"
-              //type="application/pdf"
-              className={styles.resumeBtn}
-            >
-              View Resume ↗
-            </a>                         
-
 
             <div className={styles.heroDivider} />
           </section>

@@ -1,0 +1,28 @@
+.logoutBtn {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  margin-top: 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.logoutBtn:hover {
+  background: #fee2e2; /* light red bg */
+  border-color: #ef4444; /* red border */
+  color: #dc2626; /* red text */
+}
+
+.logoutBtn::before {
+  content: '⏻'; /* power icon */
+  font-size: 14px;
+}

@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path')
 const express = require('express');
 const passport = require('passport');
 const cors = require('cors');
@@ -137,6 +138,12 @@ app.post('/signin', async (req, res) => {
   res.json({ message: `Welcome back ${user.displayName}!`, token });
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`server on http://localhost:${process.env.PORT}`);
+app.get('/resume', (req, res) => {
+  res.setHeader('Content-Type', 'application/pdf')
+  res.setHeader('Content-Disposition', 'inline; filename="resume.pdf"')
+  res.sendFile(path.join(__dirname, 'resume.pdf'))
+})
+
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`server on http://localhost:${process.env.PORT || 8080}`);
 });
