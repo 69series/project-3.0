@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Login.module.css'
 
 const API = import.meta.env.VITE_API_URL
@@ -9,6 +9,11 @@ function Login() {
   const [otp, setOtp] = useState('')
   const [message, setMessage] = useState('')
   const [view, setView] = useState('login')
+
+  useEffect(() => {
+  const token = localStorage.getItem('token')
+  if (token) window.location.href = '/dashboard'
+}, [])
 
   const handleSignin = async (e) => {
     e.preventDefault()
