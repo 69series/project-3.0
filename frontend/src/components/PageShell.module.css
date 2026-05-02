@@ -17,17 +17,30 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  color: var(--text-muted);
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  animation: pulse 1.5s ease-in-out infinite;
+  background: var(--bg-void);
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.3; }
-  50%       { opacity: 1; }
+.loading::after {
+  content: 'INITIALIZING...';
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  animation: stretch 4s ease-in-out infinite;
 }
+
+@keyframes stretch {
+  0%, 100% {
+    letter-spacing: 3px;
+    opacity: 0.4;
+  }
+  50% {
+    letter-spacing: 12px;
+    opacity: 1;
+    color: var(--text-accent);
+  }
+}
+
 /* ── Mobile header ───────────────────────── */
 .mobileHeader {
   display: none;

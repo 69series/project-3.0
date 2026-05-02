@@ -24,7 +24,7 @@ function PageShell({ children }) {
       .catch(() => window.location.href = '/')
   }, [])
 
-  if (!user) return <div className={styles.loading}>INITIALIZING...</div>
+  if (!user) return <div className={styles.loading}></div>
 
   return (
     <div className={styles.shell}>
