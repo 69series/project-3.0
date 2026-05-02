@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import Sidebar from './Sidebar'
 import styles from './PageShell.module.css'
 
@@ -6,6 +7,7 @@ const API = import.meta.env.VITE_API_URL
 
 function PageShell({ children }) {
   const [user, setUser] = useState(null)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -26,10 +28,31 @@ function PageShell({ children }) {
 
   return (
     <div className={styles.shell}>
-      <Sidebar user={user} />
-      <main className={styles.main}>
+      {/* Mobile header bar */}
+      <div className={styles.mobileHeader}>
+        <button className={styles.hamburger} onClick={() => setSidebarOpen(true)}>
+          ☰
+        </button>
+        <span className={styles.mobileName}>NARENDRA SAGOLSEM</span>
+        <span className={styles.mobileDot} />
+      </div>
+
+      {/* Backdrop */}
+      {sidebarOpen && (
+        <div className={styles.backdrop} onClick={() => setSidebarOpen(false)} />
+      )}
+
+      <Sidebar user={user} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      <motion.main
+        className={styles.main}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+      >
         {typeof children === 'function' ? children(user) : children}
-      </main>
+      </motion.main>
     </div>
   )
 }

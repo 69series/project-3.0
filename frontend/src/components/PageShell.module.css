@@ -21,3 +21,72 @@
   font-size: 13px;
   letter-spacing: 1px;
 }
+
+/* ── Mobile header ───────────────────────── */
+.mobileHeader {
+  display: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 20px;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.hamburger:hover {
+  color: var(--text-accent);
+}
+
+.mobileName {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  flex: 1;
+  text-align: center;
+}
+
+.mobileDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 8px var(--violet);
+}
+
+/* Backdrop */
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 10, 0.85);
+  z-index: 40;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .mobileHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-deep);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .shell {
+    flex-direction: column;
+  }
+
+  .backdrop {
+    display: block;
+  }
+}
