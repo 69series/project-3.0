@@ -73,3 +73,19 @@ button {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+[data-theme="light"] {
+  --bg-void: #f8f7ff;
+  --bg-deep: #f0effe;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ede9fe;
+  --bg-hover: #ddd6fe;
+
+  --text-primary: #0f0a1e;
+  --text-secondary: #3b2d6e;
+  --text-muted: #7c6aa0;
+  --text-accent: #7c3aed;
+
+  --border: rgba(124, 58, 237, 0.15);
+  --border-bright: rgba(124, 58, 237, 0.4);
+}

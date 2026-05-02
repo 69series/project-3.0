@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../context/ThemeContext'
+import ThemeToggle from '../components/ThemeToggle'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Login.module.css'
 
@@ -116,6 +118,7 @@ function Login() {
         <div className={styles.brand}>
           <div className={styles.brandDot} />
           <span>ALEX ALDERSON</span>
+          <ThemeToggle />
         </div>
 
         {/* OTP view */}

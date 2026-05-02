@@ -1,0 +1,45 @@
+.switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.switch input {
+  display: none;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.switch input:checked ~ .track {
+  background: #ede9fe;
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+.switch input:checked ~ .track .thumb {
+  transform: translateX(22px);
+}

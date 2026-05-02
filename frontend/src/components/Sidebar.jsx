@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 import { motion } from 'framer-motion'
 import { LayoutDashboard, User, FolderGit2, BookOpen, FlaskConical, Mail, CakeSliceIcon } from 'lucide-react'
 import styles from './Sidebar.module.css'
@@ -89,6 +90,7 @@ function Sidebar({ user, isOpen, onClose }) {
             <div className={styles.avatarName}>{user?.displayName}</div>
             <div className={styles.avatarRole}>Visitor</div>
           </div>
+          <ThemeToggle />
         </div>
         <button className={styles.logoutBtn} onClick={handleLogout}>
           ⇥ Sign out

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ThemeToggle from './ThemeToggle'
 import { motion } from 'framer-motion'
 import Sidebar from './Sidebar'
 import styles from './PageShell.module.css'
@@ -35,6 +36,7 @@ function PageShell({ children }) {
         </button>
         <span className={styles.mobileName}>NARENDRA SAGOLSEM</span>
         <span className={styles.mobileDot} />
+        <ThemeToggle />
       </div>
 
       {/* Backdrop */}
