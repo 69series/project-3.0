@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import ThemeToggle from './ThemeToggle'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from './Sidebar'
 import styles from './PageShell.module.css'
 
@@ -40,9 +40,18 @@ function PageShell({ children }) {
       </div>
 
       {/* Backdrop */}
-      {sidebarOpen && (
-        <div className={styles.backdrop} onClick={() => setSidebarOpen(false)} />
-      )}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <motion.div
+          className={styles.backdrop}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={() => setSidebarOpen(false)}
+          />
+          )}
+      </AnimatePresence>
 
       <Sidebar user={user} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 

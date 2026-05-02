@@ -80,7 +80,6 @@
 
 /* Backdrop */
 .backdrop {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(5, 5, 10, 0.85);
