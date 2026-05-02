@@ -8,6 +8,7 @@ import Projects from './pages/Projects'
 import Publications from './pages/Publications'
 import LabNotes from './pages/LabNotes'
 import Contact from './pages/Contact'
+import Void from './pages/Void'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/labnotes" element={<LabNotes />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/void" element={<Void />} />
       </Routes>
     </AnimatePresence>
   )

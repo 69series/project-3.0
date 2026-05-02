@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import { motion } from 'framer-motion'
-import { LayoutDashboard, User, FolderGit2, BookOpen, FlaskConical, Mail, CakeSliceIcon } from 'lucide-react'
+import { LayoutDashboard, User, FolderGit2, BookOpen, FlaskConical, Mail, Sparkles } from 'lucide-react'
 import styles from './Sidebar.module.css'
 
 const NAV = [
@@ -14,7 +14,8 @@ const NAV = [
   { icon: <FlaskConical size={15} />, label: 'Lab Notes', path: '/labnotes' },
   { section: 'Connect' },
   { icon: <Mail size={15} />, label: 'Contact', path: '/contact' },
-  { icon: <CakeSliceIcon size={15} />, label: 'Cake', path: '/pice' },
+  { section: 'VOID Dimemsion' },
+  { icon: <Sparkles size={15} />, label: 'Void', path: '/void' },
 ]
 
 const navStagger = {
