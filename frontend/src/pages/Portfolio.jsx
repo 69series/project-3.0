@@ -99,6 +99,19 @@ export default function Portfolio() {
   return (
     <PageShell>
       {(user) => (
+         <PortfolioContent user={user} />
+      )}
+    </PageShell>
+    );
+  }
+
+  function PortfolioContent({ user }) {
+    const handleResume = () => {
+      const token = localStorage.getItem('token')
+      window.open(`${API}/resume?token=${token}`, '_blank')
+    }
+
+  return (
         <div className={styles.page}>
 
           {/* ── HERO / BIO ── */}
@@ -121,15 +134,12 @@ export default function Portfolio() {
             <p className={styles.heroAbout}>{bio.about}</p>
             
             {/* ── RESUME BUTTON ── */}
-            <a 
-              href={`${API}/resume`}
-              target="_blank"
-              rel="noopener noreferrer"
-              type="application/pdf"
-              className={styles.resumeBtn}
+            <button
+            className={styles.resumeBtn}
+            onClick={handleResume}
             >
               View Resume ↗
-            </a>                         
+            </button>                         
 
 
             <div className={styles.heroDivider} />
@@ -217,6 +227,4 @@ export default function Portfolio() {
 
         </div>
       )}
-    </PageShell>
-  );
-}
+      

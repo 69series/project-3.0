@@ -24,7 +24,7 @@ app.use(passport.initialize());
 // ─── JWT Middleware ──────────────────────────────────────
 function verifyJWT(req, res, next) {
   const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1]; // "Bearer <token>"
+  const token = (authHeader && authHeader.split(' ')[1]) || req.query.token // "Bearer <token>"
   if (!token) return res.status(401).json({ message: 'No token, access denied' });
 
   try {
@@ -138,10 +138,14 @@ app.post('/signin', async (req, res) => {
   res.json({ message: `Welcome back ${user.displayName}!`, token });
 });
 
-app.get('/resume', (req, res) => {
+app.get('/resume', verifyJWT, (req,res) => {
+  const filePath = path.join(__dirname, 'resume.pdf') 
   res.setHeader('Content-Type', 'application/pdf')
   res.setHeader('Content-Disposition', 'inline; filename="resume.pdf"')
-  res.sendFile(path.join(__dirname, 'resume.pdf'))
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  res.sendFile(filePath, (err) => {
+    if (err) res.status(500).json({ message: 'Failed to load resume'})
+  })
 })
 
 app.listen(process.env.PORT || 8080, () => {
