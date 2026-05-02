@@ -61,7 +61,7 @@ function Sidebar({ user, isOpen, onClose }) {
       <motion.nav
         className={styles.nav}
         initial="closed"
-        animate={isOpen ? 'open' : 'closed'}
+        animate="open"
         variants={navStagger}
       >
         {NAV.map((item, i) =>

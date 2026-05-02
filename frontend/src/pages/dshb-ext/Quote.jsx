@@ -27,7 +27,7 @@ export default function Quote() {
     }, 150)
   }
 
-  useEffect(() => { getNewQuote() }, [])
+  useEffect(() => { getNewQuote() }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={styles.quoteContainer}>

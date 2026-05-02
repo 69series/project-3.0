@@ -3,6 +3,7 @@
   padding: 1.75rem 2rem;
   background: var(--bg-surface);
   border: 1px solid var(--border);
+  border-top: 1px solid rgba(124, 58, 237, 0.25);
   border-radius: 14px;
   text-align: center;
   position: relative;

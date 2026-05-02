@@ -172,19 +172,19 @@
 }
 
 /* ── Main ────────────────────────────────── */
-.main {
+/*.main {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
+}*/
 
 /* ── Hero ────────────────────────────────── */
 .hero {
   padding: 40px 44px 32px;
   border-bottom: 1px solid var(--border);
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   flex-shrink: 0;
 }
 
@@ -268,9 +268,9 @@
 
 /* ── Content ─────────────────────────────── */
 .content {
-  flex: 1;
-  padding: 28px 44px;
-  overflow-y: auto;
+  /* flex: 1; */
+  padding: 28px 44px 120px;
+  /* overflow-y: auto; */
 }
 
 .sectionTitle {
@@ -372,4 +372,10 @@
   color: var(--text-muted);
   font-size: 13px;
   letter-spacing: 1px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

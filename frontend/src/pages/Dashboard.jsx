@@ -15,12 +15,6 @@ const ACTIVITY = [
   { text: 'Published — Smart irrigation system using LoRa', tag: 'Publication', color: '#7c3aed' },
   { text: 'Added — PCB design files for motor controller v2', tag: 'Project', color: '#6366f1' },
   { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
-  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
-  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
-  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
-  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
-  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
-  { text: 'Updated — Portfolio with internship details', tag: 'Portfolio', color: '#a78bfa' },
 ]
 
 // ── Animation variants ────────────────────────────────────
@@ -117,9 +111,8 @@ function DashboardContent({ user }) {
             </motion.div>
           ))}
         </motion.div>
+        <Quote />
       </div>
-
-      <Quote />
     </>
   )
 }
