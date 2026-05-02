@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import PageShell from "../components/PageShell";
 import styles from "./Portfolio.module.css";
 
@@ -106,44 +107,68 @@ export default function Portfolio() {
   }
 
   function PortfolioContent({ user }) {
+    const [resumeOpen, setResumeOpen] = useState(false)
+
+    const token = localStorage.getItem('token')
+    const resumeUrl = `${API}/resume?token=${token}`
+
     const handleResume = () => {
-      const token = localStorage.getItem('token')
-      window.open(`${API}/resume?token=${token}`, '_blank')
-    }
+      setResumeOpen(true)
+  }
 
   return (
-        <div className={styles.page}>
+    <div className={styles.page}>
 
-          {/* ── HERO / BIO ── */}
-          <section className={styles.hero}>
-            <div className={styles.heroGlow} aria-hidden="true" />
-
-            <div className={styles.heroMeta}>
-              {bio.available && (
-                <span className={styles.availBadge}>
-                  <span className={styles.availDot} />
-                  Available for work
-                </span>
-              )}
-              <span className={styles.locationTag}>{bio.location}</span>
+      {/* ── RESUME MODAL ── */}
+      {resumeOpen && (
+        <div className={styles.modalBackdrop} onClick={() => setResumeOpen(false)}>
+          <div className={styles.modalCard} onClick={e => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <span className={styles.modalTitle}>Resume — Narendra Sagolsem.pdf</span>
+              <button className={styles.modalClose} onClick={() => setResumeOpen(false)}>✕</button>
             </div>
+            <iframe
+              src={resumeUrl}
+              className={styles.modalIframe}
+              title="Resume"
+            />
+            <div className={styles.modalFooter}>
+              <a href={resumeUrl} download className={styles.downloadBtn}>
+                Download ↓
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
-            <h1 className={styles.heroName}>{bio.name}</h1>
-            <p className={styles.heroTitle}>{bio.title}</p>
-            <p className={styles.heroTagline}>{bio.tagline}</p>
-            <p className={styles.heroAbout}>{bio.about}</p>
+      {/* ── HERO / BIO ── */}
+      <section className={styles.hero}>
+        <div className={styles.heroGlow} aria-hidden="true" />
+        <div className={styles.heroMeta}>
+          {bio.available && (
+            <span className={styles.availBadge}>
+              <span className={styles.availDot} />
+              Available for work
+            </span>
+          )}
+          <span className={styles.locationTag}>{bio.location}</span>
+        </div>
+
+        <h1 className={styles.heroName}>{bio.name}</h1>
+        <p className={styles.heroTitle}>{bio.title}</p>
+        <p className={styles.heroTagline}>{bio.tagline}</p>
+        <p className={styles.heroAbout}>{bio.about}</p>
             
-            {/* ── RESUME BUTTON ── */}
-            <button
-            className={styles.resumeBtn}
-            onClick={handleResume}
-            >
-              View Resume ↗
-            </button>                         
+        {/* ── RESUME BUTTON ── */}
+        <button className={styles.resumeBtn} onClick={handleResume}>
+          View Resume ↗
+        </button>
+
+        <div className={styles.heroDivider} />
+      </section>                         
 
 
-            <div className={styles.heroDivider} />
-          </section>
+    
 
           {/* ── SKILLS ── */}
           <section className={styles.section}>
